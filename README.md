@@ -40,7 +40,7 @@ This variant has been tailored to suit the specific needs of the SIC1 course, re
 ### Clone (or fork, or download)
 
 ```sh
-git clone https://github.com/Chabloz/a-frame-vite-vue-boilerplate.git .
+git clone https://github.com/Meryl-D/a-frame-vite-vue-boilerplate.git .
 ```
 
 ### Install dependencies
