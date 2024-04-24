@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
+import TheButtons from './TheButtons.vue';
 
 const allAssetsLoaded = ref(false);
 
@@ -15,7 +16,8 @@ const allAssetsLoaded = ref(false);
     `">
 
     <a-assets @loaded="allAssetsLoaded = true">
-      <a-asset-item id="elevator" src="/path/to/elevator.gltf"></a-asset-item>
+      <a-asset-item id="elevator-model" src="/assets/elevator_-_low_poly_animated.glb"></a-asset-item>
+      <img id="metal-texture" src="/assets/metal.jpg">
     </a-assets>
 
     <TheCameraRig />
@@ -29,6 +31,10 @@ const allAssetsLoaded = ref(false);
          cameraEl: #head;
         "
       ></a-entity> -->
-      
+      <template v-if="allAssetsLoaded">
+        <a-gltf-model src="#elevator-model" rotation="0 180 0" scale="0.8 0.8 0.8">
+          <TheButtons/>
+        </a-gltf-model>
+      </template>
   </a-scene>
 </template>
