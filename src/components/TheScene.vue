@@ -15,17 +15,26 @@ const allAssetsLoaded = ref(false);
 
     <a-assets @loaded="allAssetsLoaded = true">
       <a-asset-item id="saint-francois-model" src="/assets/st_francois_small.glb"></a-asset-item>
-      <a-asset-item id="terrain-model" src="/assets/st_francois_small_buildings.glb"></a-asset-item>
-      <a-asset-item id="buildings-model" src="/assets/st_francois_small_just_terrain.glb"></a-asset-item>
-
-      <!-- <img id="metal-texture" src="/assets/metal.jpg"> -->
-      <img id="sky" src="/assets/AdobeStock_359169811.jpeg">
+      <img id="sky" src="/assets/AdobeStock_365284108.jpeg">
     </a-assets>
 
     <TheCameraRig />
+
     <template v-if="allAssetsLoaded">
+      <!-- Sky -->
       <a-sky src="#sky"></a-sky>
-      <!-- <a-entity
+
+      <!-- Model -->
+      <a-gltf-model src="#saint-francois-model" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
+      </a-gltf-model>
+
+      <!-- Navmesh -->
+      <a-plane class="navmesh" color="blue" rotation="-90 -135 122" position="48 0 -25" height="450"
+        width="650" visible="false"></a-plane>
+      <a-plane class="navmesh-hole" color="red" rotation="-90 78 0" position="-159 0.001 -99" height="200" width="300" visible="false"</a-plane>
+    </template>
+
+    <!-- <a-entity
         id="freeman-tiles"
         rotation="-90 180 0"
         position="-300 -200 500"
@@ -35,23 +44,6 @@ const allAssetsLoaded = ref(false);
          cameraEl: #head;
         "
       ></a-entity> -->
-      <!-- <template v-if="allAssetsLoaded"> -->
-      <!-- <a-gltf-model src="#elevator-model" rotation="0 180 0" scale="0.8 0.8 0.8">
-          <TheButtons/>
-        </a-gltf-model> -->
-      <a-gltf-model src="#saint-francois-model" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
-      </a-gltf-model>
-      <!-- <a-gltf-model class="navmesh" src="#terrain-model" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
-      </a-gltf-model>
-      <a-gltf-model class="navmesh-hole" src="#buildings-model" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
-      </a-gltf-model> -->
-      <!-- </template> -->
-      <a-plane class="navmesh" color="blue" rotation="-90 -135 122" position="48 0 -25" height="450"
-        width="650"></a-plane>
-
-      <a-plane class="navmesh-hole" color="red" rotation="-90 78 0" position="-159 0.0001 -99" height="200" width="300"
-        </a-plane>
-    </template>
 
   </a-scene>
 </template>
