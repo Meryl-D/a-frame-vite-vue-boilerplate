@@ -1,8 +1,6 @@
 <script setup>
   import '../aframe/disable-in-vr.js';
   import '../aframe/hide-in-vr.js';
-  import '../aframe/simple-navmesh-constraint.js';
-  import '../aframe/blink-controls.js';
 </script>
 
 <template>
@@ -15,8 +13,6 @@
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        simple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
-        disable-in-vr="component: simple-navmesh-constraint;"
         camera
         position="0 1.65 0"
       >
@@ -42,12 +38,6 @@
       <a-entity
         id="hand-left"
         hand-controls="hand: left"
-        blink-controls="
-          cameraRig: #camera-rig;
-          teleportOrigin: #head;
-          collisionEntities: [data-role='nav-mesh'];
-          snapTurn: false;
-        "
         position="0 1.5 0"
       >
       </a-entity>
