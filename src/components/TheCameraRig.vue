@@ -15,8 +15,7 @@
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
-        simple-navmesh-constraint="navmesh: [data-role='nav-mesh']; height: 1.65;"
-        disable-in-vr="component: simple-navmesh-constraint;"
+        simple-navmesh-constraint="navmesh: .navmesh; height: 1.65; exclude: .navmesh-hole;"
         camera
         position="0 1.65 0"
       >
@@ -45,8 +44,9 @@
         blink-controls="
           cameraRig: #camera-rig;
           teleportOrigin: #head;
-          collisionEntities: [data-role='nav-mesh'];
+          collisionEntities: .navmesh-hole;
           snapTurn: false;
+          button: trigger;
         "
         position="0 1.5 0"
       >
