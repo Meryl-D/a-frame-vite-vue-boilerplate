@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
 import TheButtons from './TheButtons.vue';
-
 const allAssetsLoaded = ref(false);
 
 </script>
@@ -29,21 +28,15 @@ const allAssetsLoaded = ref(false);
       </a-gltf-model>
 
       <!-- Navmesh -->
-      <a-plane class="navmesh" color="blue" rotation="-90 -135 122" position="48 0 -25" height="450"
-        width="650" visible="false"></a-plane>
-      <a-plane class="navmesh-hole" color="red" rotation="-90 78 0" position="-159 0.001 -99" height="200" width="300" visible="false"</a-plane>
+      <!-- Substract -->
+      <!-- <a-plane class="navmesh-sub" color="blue" rotation="-90 -135 122" position="48 0 -25" height="450"
+        width="650"></a-plane>
+      <a-plane class="navmesh-hole" color="red" rotation="-90 78 0" position="-159 0.001 -99" height="200" width="300"</a-plane> -->
     </template>
 
-    <!-- <a-entity
-        id="freeman-tiles"
-        rotation="-90 180 0"
-        position="-300 -200 500"
-        loader-3dtiles="
-         url: https://assets.ion.cesium.com/28945/tileset.json; 
-         cesiumIONToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YTY0NWRmNy1lY2U4LTRhNWMtYjRiYy1jZTdkOGE3ZDQzYTYiLCJpZCI6MjAwMzM2LCJpYXQiOjE3MDk4MjU1MDR9.qs9k0C_BjJBxCbuYshURSlmGRqsP9JfhVtzn3dOwGE0;
-         cameraEl: #head;
-        "
-      ></a-entity> -->
+    <!-- Add -->
+    <a-plane class="navmesh-add" color="green" rotation="-90 -11 0" position="-28 0 -5" height="400"
+        width="100" visible="false"></a-plane>
 
   </a-scene>
 </template>
