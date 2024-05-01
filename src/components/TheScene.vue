@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
 import TheButtons from './TheButtons.vue';
+import '../aframe/gltf'
+
 const allAssetsLoaded = ref(false);
 
 </script>
@@ -14,6 +16,7 @@ const allAssetsLoaded = ref(false);
 
     <a-assets @loaded="allAssetsLoaded = true">
       <a-asset-item id="saint-francois-model" src="/assets/st_francois_small.glb"></a-asset-item>
+      <a-asset-item id="ny" src="/assets/ny.glb"></a-asset-item>
       <img id="sky" src="/assets/AdobeStock_365284108.jpeg">
     </a-assets>
 
@@ -24,7 +27,7 @@ const allAssetsLoaded = ref(false);
       <a-sky src="#sky"></a-sky>
 
       <!-- Model -->
-      <a-gltf-model src="#saint-francois-model" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
+      <a-gltf-model gltf src="#ny" position="111 -17 0" rotation="0 -90 0" scale="4 4 4">
       </a-gltf-model>
 
       <!-- Navmesh -->
@@ -37,6 +40,5 @@ const allAssetsLoaded = ref(false);
     <!-- Add -->
     <a-plane class="navmesh-add" color="green" rotation="-90 -11 0" position="-28 0 -5" height="400"
         width="100" visible="false"></a-plane>
-
   </a-scene>
 </template>
