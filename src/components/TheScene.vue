@@ -8,16 +8,54 @@ const allAssetsLoaded = ref(false);
 
 <template>
   <a-scene
-      background="color: gray;"
+      background="color: black;"
       :webxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
     `">
 
     <a-assets @loaded="allAssetsLoaded = true">
+      <!-- <a-asset-item id="alp-terrain" src="/assets/alps.glb"></a-asset-item> -->
+      <a-asset-item id="elevation" src="/assets/map.bin"></a-asset-item>
+      <a-asset-item id="swiss-el" src="/assets/map2.bin"></a-asset-item>
+      <img id="terrain" src="/assets/terrain.png">
     </a-assets>
 
     <TheCameraRig />
+    <!-- <a-gltf-model src="#alp-terrain" position="0 -2000 0"></a-gltf-model> -->
+
+    <a-entity rotation="0 180 0"
+    scale="100 100 100"
+    position="398 -1350 -130"
+      terrain-model="dem: #elevation;
+          map: /assets/terrain.png;
+          planeWidth: 200;
+          planeHeight: 200;
+          segmentsWidth: 199;
+          segmentsHeight: 199;
+          zPosition: 20;
+      	  wireframe: false">
+    </a-entity>
+
+    <!-- <a-entity
+      terrain-model="dem: #swiss-el;
+          planeWidth: 200;
+          planeHeight: 200;
+          segmentsWidth: 199;
+          segmentsHeight: 199;
+          zPosition: 20;
+      	  wireframe: true">
+    </a-entity> -->
+
+    <!-- <a-entity
+        terrain-model="map: url(data/noctis-3500-clip-textureRED-resized.jpg);
+          dem: url(data/noctis-3500-clip-envi.bin);
+          planeWidth: 346;
+          planeHeight: 346;
+          segmentsWidth: 199;
+          segmentsHeight: 199;
+          zPosition: 100"
+      ></a-entity> -->
 
     <!-- Olivier Ertz's tiles: not working, throws error "tile selected but not loaded" -->
     <!-- Maybe the composite (cmpt) format is not supported ? -->
@@ -43,8 +81,8 @@ const allAssetsLoaded = ref(false);
       ></a-entity> -->
 
     <!-- Same asset as above but stored in personal Cesium Ion account (Meryl) + use of personal default token -->
-    <!-- Warning: "Cannot apply a model matrix to bounding volumes of type region. Tileset stays in original geo-coordinates."-->
-    <a-entity
+    <!-- getting warning: "Cannot apply a model matrix to bounding volumes of type region. Tileset stays in original geo-coordinates."-->
+    <!-- <a-entity
         id="personal-token-tiles"
         rotation="-90 0 0"
         loader-3dtiles="
@@ -52,7 +90,7 @@ const allAssetsLoaded = ref(false);
          showStats: true;
          cesiumIONToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNzM1YjhiMC0wZGI1LTRjZDctYjMxYi1mMTUyNDQwMDc3YzciLCJpZCI6MjEyNTgxLCJpYXQiOjE3MTQ2NDM3MjV9.TDBv19NG5ggTkGXKLWmqVcCuwodZLreeXiJdmFAqLCQ;
         "
-      ></a-entity>
+      ></a-entity> -->
 
       <!-- 3D street lib example: working -->
       <!-- <a-entity
